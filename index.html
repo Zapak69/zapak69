@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click me!</title>
+
+    <!-- Import fontu Poppins z Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Obecný styl stránky */
+        html, body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #161616;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        /* Styl tlačítka */
+        .btn {
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 100px;
+            padding: 15px 40px;
+            border: none;
+            outline: none;
+            color: #FFF;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 12px;
+        }
+
+        .btn::after {
+            content: "";
+            z-index: -1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #333;
+            left: 0;
+            top: 0;
+            border-radius: 10px;
+        }
+
+        /* Glowing efekt */
+        .btn::before {
+            content: "";
+            background: linear-gradient(
+                45deg,
+                #FF0000, #FF7300, #FFFB00, #48FF00,
+                #00FFD5, #002BFF, #FF00C8, #FF0000
+            );
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 600%;
+            z-index: -1;
+            width: calc(100% + 4px);
+            height:  calc(100% + 4px);
+            filter: blur(8px);
+            animation: glowing 20s linear infinite;
+            transition: opacity .3s ease-in-out;
+            border-radius: 10px;
+            opacity: 0;
+        }
+
+        @keyframes glowing {
+            0% {background-position: 0 0;}
+            50% {background-position: 400% 0;}
+            100% {background-position: 0 0;}
+        }
+
+        /* Hover efekt */
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn:active:after {
+            background: transparent;
+        }
+
+        .btn:active {
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Styl iframe */
+        iframe {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="playButton" class="btn" onclick="playVideo()">Click me!</button>
+
+    <iframe id="video" width="1920" height="1080" src="" title="Surprise" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+    <script>
+        // Pole s odkazy na videa
+        const videoLinks = [
+            "https://www.youtube.com/embed/RHuQqLxmEyg?controls=0&mute=0",
+            "https://www.youtube.com/embed/_MtVl4FhsPc?controls=0&mute=0",
+            "https://www.youtube.com/embed/8WVBT7FrgJI?controls=0&mute=0",
+            "https://www.youtube.com/embed/NbGhHc4TloE?controls=0&mute=0",
+            "https://www.youtube.com/embed/8Pc0AEbfnBM?controls=0&mute=0",
+            "https://www.youtube.com/embed/lRxRaZz3sGU?controls=0&mute=0",
+            "https://www.youtube.com/embed/U2Fjfqm-7g8?controls=0&mute=0",
+            // Přidejte další odkazy na videa podle potřeby
+        ];
+
+        function playVideo() {
+            // Skrytí tlačítka
+            document.getElementById('playButton').style.display = 'none';
+
+            // Zobrazení iframe s videem
+            var iframe = document.getElementById('video');
+            iframe.style.display = 'block';
+
+            // Výběr náhodného videa
+            const randomIndex = Math.floor(Math.random() * videoLinks.length);
+            const randomVideo = videoLinks[randomIndex];
+
+            // Nastavení src iframe na náhodné video
+            iframe.src = randomVideo + "&autoplay=1";
+
+            // Spuštění videa na celou obrazovku
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
