@@ -26,7 +26,7 @@
 [![Batch Progress Bar Function](https://ytcards.demolab.com/?id=Mnh8amvlJQ0&title=Batch+Progress+Bar+Function&lang=en&timestamp=1720882946&background_color=%230d1117&title_color=%23ffffff&stats_color=%23dedede&max_title_lines=1&width=250&border_radius=5 "Batch Progress Bar Function")](https://www.youtube.com/watch?v=Mnh8amvlJQ0)
 <!-- END YOUTUBE-CARDS -->
 
-[<img src="https://custom-icon-badges.demolab.com/badge/-Subscribe%20For%20More-red?style=for-the-badge&logo=video&logoColor=white"/>](https://www.youtube.com/c/zippiik?sub_confirmation=1)
+[<img src="https://custom-icon-badges.demolab.com/badge/-Subscribe%20For%20More-red?style=for-the-badge&logo=video&logoColor=white"/>](https://www.youtube.com/c/@zippiik?sub_confirmation=1)
 
 #
 
